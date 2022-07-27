@@ -1,0 +1,54 @@
+name: Docker
+
+on:
+  push:
+    tags:
+      - '*'
+
+    branches:
+      - master
+
+permissions:
+  contents: write
+  discussions: write
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker meta
+        id: docker-meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/multani/alertmanager-webhook-logger
+          tags: |
+            type=ref,event=tag
+            type=raw,value=latest
+            type=sha
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: ${{ github.event_name == 'push' && (startsWith(github.ref, 'refs/tags/') || startsWith(github.ref, 'refs/branches/master')) }}
+          tags: ${{ steps.docker-meta.outputs.tags }}
+          labels: ${{ steps.docker-meta.outputs.labels }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          discussion_category_name: announcements
+          name: ${{ github.ref_name }}
