@@ -8,13 +8,13 @@ on:
     branches:
       - master
 
-permissions:
-  contents: write
-  discussions: write
-
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      discussions: write
     steps:
       - uses: actions/checkout@v3
 
