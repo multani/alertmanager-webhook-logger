@@ -115,6 +115,6 @@ func (h *httpHandler) alertHandler(w http.ResponseWriter, r *http.Request) {
 		log = logger.Error
 	}
 
-	log("Alerts received")
+	log("Events received")
 	w.WriteHeader(http.StatusOK)
 }
