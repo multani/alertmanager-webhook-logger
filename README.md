@@ -121,3 +121,11 @@ docker pull ghcr.io/multani/alertmanager-webhook-logger
   conceal any information from your alerts. Any sensitive information part of
   the content of the alerts themselves will be displayed as it was sent by
   Alertmanager.
+
+
+## Similar projects
+
+This project was influenced by [TomTom's own
+alertmanager-webhook-logger](https://github.com/tomtom-international/alertmanager-webhook-logger),
+but follows a different approach, by trying to stick closer to the original
+payload sent by Alertmanager.
