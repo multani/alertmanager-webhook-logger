@@ -2,4 +2,7 @@
   "extends": [
     "config:base",
   ],
+  "postUpdateOptions": [
+    "gomodTidy",
+  ],
 }
