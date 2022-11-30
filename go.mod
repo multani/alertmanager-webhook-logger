@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/gorilla/mux v1.8.0
 	github.com/prometheus/alertmanager v0.24.0
-	go.uber.org/zap v1.23.0
+	go.uber.org/zap v1.24.0
 )
 
 require (
