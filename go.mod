@@ -3,7 +3,7 @@ module github.com/tomtom-international/alertmanager-webhook-logger
 go 1.21
 
 require (
-	github.com/gorilla/mux v1.8.0
+	github.com/gorilla/mux v1.8.1
 	github.com/prometheus/alertmanager v0.26.0
 	go.uber.org/zap v1.26.0
 )
