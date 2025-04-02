@@ -1,16 +1,17 @@
 {
-  "extends": [
-    "config:base",
+  extends: [
+    'config:recommended',
   ],
-  "postUpdateOptions": ["gomodTidy"],
-
-  "packageRules": [
+  postUpdateOptions: [
+    'gomodTidy',
+  ],
+  packageRules: [
     {
-      "matchPackageNames": [
-        "go", // go.mod
-        "golang", // Docker
+      matchPackageNames: [
+        'go',
+        'golang',
       ],
-      "groupName": "go",
+      groupName: 'go',
     },
   ],
 }
