@@ -9,7 +9,7 @@
       "matchPackageNames": [
         "go", // go.mod
         "golang", // Docker
-      ]
+      ],
       "groupName": "go",
     },
   ],
