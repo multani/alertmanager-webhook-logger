@@ -7,7 +7,7 @@ toolchain go1.25.3
 require (
 	github.com/gorilla/mux v1.8.1
 	github.com/prometheus/alertmanager v0.29.0
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.27.1
 )
 
 require (
