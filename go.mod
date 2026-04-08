@@ -2,7 +2,7 @@ module github.com/tomtom-international/alertmanager-webhook-logger
 
 go 1.24.0
 
-toolchain go1.26.1
+toolchain go1.26.2
 
 require (
 	github.com/gorilla/mux v1.8.1
